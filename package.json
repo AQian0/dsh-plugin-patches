@@ -1,0 +1,28 @@
+{
+  "name": "@aqian0/dsh-plugin-patches",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Patch set for DeepSeek Harness, delivered as one dsh plugin bundle",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "bun scripts/build.ts",
+    "lint": "oxlint",
+    "typecheck": "tsc --noEmit",
+    "check:bundle": "bun scripts/checkBundle.ts",
+    "check": "bun run lint && bun run typecheck && bun run check:bundle"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.2",
+    "oxlint": "1.86.0",
+    "typescript": "7.0.2"
+  }
+}
